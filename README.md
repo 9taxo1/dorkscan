@@ -4,8 +4,8 @@ Google Dork Scan
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/aungsanoo-usa/gdork.git
-   cd gdork
+   git clone https://github.com/9taxo1/dorkscan/
+   cd dorkscan
    pip install requests beautifulsoup4
   
 
