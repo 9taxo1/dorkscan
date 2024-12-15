@@ -4,7 +4,7 @@ import urllib.parse
 import time
 
 class GoogleDorkScanner:
-    def __init__(self, output_file="dork_results.txt"):
+    def __init__(self, output_file="sonuçlar.txt"):
 
         self.base_url = "https://www.google.com/search"
         self.output_file = output_file
@@ -54,16 +54,16 @@ if __name__ == "__main__":
 ██║   ██║    ██║  ██║██║   ██║██╔══██╗██╔═██╗ 
 ╚██████╔╝    ██████╔╝╚██████╔╝██║  ██║██║  ██╗
  ╚═════╝     ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-              Created by: Aung San Oo
-             Website: https://aungsanoo.com
+              Bu Araç Taxo Tarafından Yapılmıştır 
+            
 {RESET}
 """
     print(banner)
 
     # Interactive prompts
-    print("[+] Welcome to the Google Dork Scanner!")
-    dork_query = input("[+] Enter the Dork Search Query: ").strip()
-    num_results = input("[+] Enter the Number of Websites to Display: ").strip()
+    print("[+] Google Dork Scannerimize Hoş Geldiniz!")
+    dork_query = input("[+] Aranacak Dorkunuzu Giriniz: ").strip()
+    num_results = input("[+] Ne Kadar Web Sayfası Görüntüleyelim: ").strip()
     
     # Validate input
     try:
@@ -71,17 +71,17 @@ if __name__ == "__main__":
         if num_results <= 0:
             raise ValueError
     except ValueError:
-        print("[-] Invalid number of results. Please enter a positive integer.")
+        print("[-] Geçersiz sonuç sayısı. Lütfen pozitif bir tamsayı girin.")
         exit()
 
     # Create scanner instance
     scanner = GoogleDorkScanner()
 
-    print(f"\n[+] Searching for: {dork_query}")
+    print(f"\n[+] Dork Aranıyor: {dork_query}")
     results = scanner.search_dork(dork_query, num_results=num_results)
     
     if isinstance(results, list):
-        print("\n[+] Results:")
+        print("\n[+] Sonuçlar:")
         for link in results:
             print(link)
     else:
@@ -89,4 +89,4 @@ if __name__ == "__main__":
 
     # Save results to file
     scanner.save_results(results)
-    print(f"\n[+] Results have been saved to {scanner.output_file}.")
+    print(f"\n[+] Sonuçlar sonuçlar.txt Dosyasına Kaydedildi Dizinin İçine Bakınız {scanner.output_file}.")
